@@ -16,7 +16,7 @@ const TopBar = () => {
         {/* Email - hidden on small screens */}
         <div className="hidden sm:flex items-center gap-2">
           <Mail size={16} />
-          <span className="truncate">nihal@deadbodyfreezerboxonrent.com</span>
+          <span className="truncate">rahulyadavmpi93@gmail.com</span>
         </div>
 
         {/* Phone - always visible */}

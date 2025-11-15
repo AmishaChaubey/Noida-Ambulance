@@ -1,124 +1,153 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function CallToAction() {
-  const [isHovered, setIsHovered] = useState(false);
+  const colors = {
+    primary: '#FFFFFF',
+    secondary: '#F3F4F6',
+    accent: '#E5E7EB',
+    glow: 'rgba(255, 255, 255, 0.25)',
+    dark: '#111827',
+    light: '#FFFFFF',
+    medium: '#D1D5DB'
+  };
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-gray-900 bg-cover bg-center py-12"
+      className="relative w-full overflow-hidden py-8 transition-all duration-500"
       style={{
-        backgroundImage: "url('/2.jpeg')",
+        background: `linear-gradient(135deg, #1F2937 0%, #374151 100%)`,
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gray-900/80"></div>
+      {/* Subtle animated background */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, ${colors.primary} 0%, transparent 50%)`,
+          }}
+        ></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 80% 80%, ${colors.primary} 0%, transparent 50%)`,
+          }}
+        ></div>
+      </div>
 
-      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col-reverse md:flex-row gap-8 items-center">
-        {/* Left side - Ambulance GIF */}
-        <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-          <img
-            className="w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 object-contain"
-            src="/cta.gif"
-            alt="Ambulance Service"
-          />
-        </div>
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
+          {/* Left side visual */}
+          <div className="w-full lg:w-2/5 flex justify-center">
+            <div className="relative group">
 
-        {/* Right side - Text and buttons */}
-        <div className="flex-1 text-white flex flex-col items-center md:items-start text-center md:text-left gap-4">
-          <div className="inline-flex items-center px-4 py-1 border border-white/30 rounded-full text-sm font-semibold bg-white/10 backdrop-blur-md">
-            <svg
-              className="w-4 h-4 mr-2 animate-pulse text-red-500"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clipRule="evenodd"
-              />
-            </svg>
-            24/7 EMERGENCY SERVICE
+              <div
+                className="absolute -inset-3 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg"
+                style={{ backgroundColor: colors.glow }}
+              ></div>
+
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                <img
+                  className="w-48 h-48 lg:w-56 lg:h-56 object-contain transition-transform duration-500 group-hover:scale-105"
+                  src="/blog-img/10.jpg"
+                  alt="Freezer Box Service"
+                />
+              </div>
+
+              <div
+                className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-gray-800 font-bold text-sm shadow-md"
+                style={{ backgroundColor: colors.primary }}
+              >
+                🕊️ Dignity Preserved
+              </div>
+            </div>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug drop-shadow-lg">
-            When Every Second <br className="hidden md:block" /> Counts
-          </h2>
+          {/* Right content */}
+          <div className="w-full lg:w-3/5 text-white flex flex-col items-center lg:items-start text-center lg:text-left">
 
-          <p className="text-gray-200 text-base sm:text-lg md:text-lg max-w-full md:max-w-md leading-relaxed">
-            Quick, reliable, and professional ambulance service with advanced life support and experienced paramedics — ready when you need us most.
-          </p>
+            <div className="inline-flex items-center px-4 py-1 rounded-full text-xs font-bold bg-white/10 backdrop-blur-md border border-white/30 mb-3">
+              <span className="w-2 h-2 rounded-full mr-2 bg-white animate-pulse"></span>
+              24/7 PRESERVATION SERVICE
+            </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-3 w-full sm:w-auto justify-center md:justify-start">
-            <button
-              className="group relative w-full sm:w-auto px-6 py-3 bg-red-900 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <span className="relative z-10 flex items-center">
-                <svg
-                  className={`mr-2 w-5 h-5 transition-transform duration-300 ${
-                    isHovered ? "animate-ring" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-3">
+              <span className="text-white">Dignified</span> Preservation Services
+            </h2>
+
+            <p className="text-gray-300 text-base leading-relaxed mb-5 max-w-lg">
+              Compassionate freezer box services ensuring dignified preservation with utmost respect and care.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <Link to="/services">
+                <button
+                  className="group px-6 py-2.5 rounded-lg font-bold text-gray-800 transition-all duration-500 transform hover:scale-105 flex items-center justify-center w-full sm:w-auto"
+                  style={{
+                    backgroundColor: colors.primary,
+                    boxShadow: `0 4px 15px ${colors.glow}`
+                  }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                Call Emergency: 911
-              </span>
-            </button>
+                  Learn More
+                  <svg
+                    className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              </Link>
 
-            <Link to="/services">
-              <button className="group px-6 py-3 bg-white/10 border border-white/30 rounded-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-red-900 hover:scale-105 flex items-center justify-center w-full sm:w-auto">
-                Our Services
-                <svg
-                  className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <Link to="/contact">
+                <button
+                  className="group px-6 py-2.5 rounded-lg font-bold transition-all duration-500 transform hover:scale-105 border-2 flex items-center justify-center w-full sm:w-auto"
+                  style={{
+                    borderColor: colors.primary,
+                    color: colors.primary,
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = colors.primary;
+                    e.target.style.color = '#1F2937';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                    e.target.style.color = colors.primary;
+                  }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
+                  📅 Book Service
+                </button>
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex gap-4 mt-4 text-gray-300 text-xs">
+              <div className="flex items-center">
+                <svg className="w-4 h-4 mr-1 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-              </button>
-            </Link>
+                Certified
+              </div>
+              <div className="flex items-center">
+                <svg className="w-4 h-4 mr-1 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                </svg>
+                24/7 Available
+              </div>
+              <div className="flex items-center">
+                <svg className="w-4 h-4 mr-1 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                </svg>
+                Professional
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes ring {
-          0%,
-          100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(-10deg);
-          }
-          50% {
-            transform: rotate(10deg);
-          }
-          75% {
-            transform: rotate(-10deg);
-          }
-        }
-        .animate-ring {
-          animation: ring 0.6s ease-in-out;
-        }
-      `}</style>
     </section>
   );
 }

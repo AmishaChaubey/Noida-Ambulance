@@ -1,85 +1,66 @@
 import { useState, useEffect } from "react";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function WelcomeSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const words = ["Pari Ambulance ", "Pari Ambulance"]; // Words to loop
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Typing effect logic
-  useEffect(() => {
-    const currentWord = words[wordIndex];
-    const typingSpeed = isDeleting ? 60 : 150;
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting && displayText.length < currentWord.length) {
-        setDisplayText(currentWord.slice(0, displayText.length + 1));
-      } else if (isDeleting && displayText.length > 0) {
-        setDisplayText(currentWord.slice(0, displayText.length - 1));
-      } else if (!isDeleting && displayText.length === currentWord.length) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && displayText.length === 0) {
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
-
   return (
-    <div className="w-full bg-gray-50 py-20 px-4 sm:px-6 lg:px-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <div className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
         <div
-          className={`text-center transition-all duration-1000 transform ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          className={`text-center transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          {/* Hero Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-serif">
-            Welcome to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#96080B] to-[#C8252C]">
-              <span className="inline-block text-red-600">
-                {displayText}
-                <span className="border-r-4 border-red-600 ml-1 animate-pulse"></span>
-              </span>
-            </span>
+          {/* Simple Icon */}
+          <div className="flex justify-center mb-6">
+            <Heart className="w-10 h-10 text-gray-400" />
+          </div>
+
+          {/* Simple Title */}
+          <h1 className="text-3xl sm:text-4xl font-serif text-gray-800 mb-6">
+            Compassionate Funeral Services
           </h1>
 
-          {/* Extended Paragraph */}
-          <p className="text-sm sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-            When every second counts, trust our professional emergency medical
-            services to be there for you. Fast, reliable, and compassionate care
-            when you need it most. Our team of certified paramedics and advanced
-            ambulance fleet ensures that no matter where you are, help reaches you
-            quickly and efficiently. From life-threatening emergencies to urgent
-            medical transportation, we provide comprehensive support with a
-            focus on patient safety, comfort, and well-being. Experience peace of
-            mind knowing that 24/7, we are dedicated to saving lives and providing
-            exceptional care.
+          {/* Simple Description */}
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            We provide dignified funeral services with respect and care. 
+            Our services include freezer boxes, funeral arrangements, 
+            cremation support, and transportation during your time of need.
           </p>
 
-          {/* CTA Buttons */}
+          {/* Simple Service List */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 max-w-2xl mx-auto text-sm">
+            <div className="py-3 px-4 bg-gray-50 rounded text-gray-700">
+              Freezer Box
+            </div>
+            <div className="py-3 px-4 bg-gray-50 rounded text-gray-700">
+              Funeral Arrangements
+            </div>
+            <div className="py-3 px-4 bg-gray-50 rounded text-gray-700">
+              Cremation Support
+            </div>
+            <div className="py-3 px-4 bg-gray-50 rounded text-gray-700">
+              Transportation
+            </div>
+          </div>
+
+          {/* Simple CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group bg-[#96080B] text-white px-8 py-4 rounded-full font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-2">
-              <Phone className="w-5 h-5" />
-              Call Emergency: 911
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+           <Link to='/services'> <button className="bg-gray-800 text-white px-8 py-3 rounded hover:bg-gray-700 transition-colors">
+              Our Services
             </button>
-          
-<Link to="/contact">
-  <button className="bg-white text-[#96080B] px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 border-2 border-red-200">
-    Book Non-Emergency
-  </button>
-</Link>
+            </Link>
+           <Link to='/contact'> <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded hover:border-gray-400 hover:bg-gray-50 transition-colors flex items-center gap-2">
+              <Phone className="w-4 h-4" />
+              Contact Us
+            </button>
+            </Link>
           </div>
         </div>
       </div>

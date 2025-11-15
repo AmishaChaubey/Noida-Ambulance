@@ -1,34 +1,37 @@
-// Home Services with Animated Hover Design
+// Funeral & Mortuary Services with Animated Hover Design + Images + Button
 import React, { useState } from "react";
-import { HeartPulse, Clock, Stethoscope, PhoneCall } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServiceSection = () => {
   const [activeCard, setActiveCard] = useState(null);
 
   const services = [
     {
-      icon: HeartPulse,
-      title: "Emergency Ambulance",
+      img: "/blog-img/3.jpg",
+      title: "Freezer Box on Rent",
       description:
-        "Fast and reliable emergency ambulance service equipped with life-saving equipment and trained paramedics to respond anytime, anywhere.",
+        "Premium quality freezer boxes available for rent, equipped with temperature control to preserve the deceased with dignity and respect.",
+      link: "/services",
     },
     {
-      icon: Stethoscope,
-      title: "ICU & Cardiac Ambulance",
-      description:
-        "Fully equipped ICU and cardiac care ambulances with ventilators, defibrillators, and oxygen support for critical patients.",
+      img: "/blog-img/7.jpg",
+      title: "Funeral Box Services",
+      description:"Elegant and respectful funeral boxes designed to provide a dignified final resting place for your loved ones with utmost care and compassion",
+      link: "/services",
     },
     {
-      icon: Clock,
-      title: "Timely Medical Response",
+      img: "/blog-img/8.jpg",
+      title: "Cremation Ceremony Assistance",
       description:
-        "We understand every second counts. Our rapid response team ensures the quickest route and fastest dispatch to save valuable time.",
+        "Complete support for cremation ceremonies, including arrangements, documentation, and handling throughout.",
+      link: "/services",
     },
     {
-      icon: PhoneCall,
-      title: "24/7 Helpline Support",
+      img: "/blog-img/9.jpg",
+      title: "Dead Body Transportation",
       description:
-        "Our emergency helpline is open round-the-clock to ensure immediate assistance and ambulance dispatch when you need it the most.",
+        "Dignified and respectful transportation services for the deceased, ensuring safe and proper handling during transfers.",
+      link: "/services",
     },
   ];
 
@@ -38,17 +41,16 @@ const ServiceSection = () => {
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-4 font-serif">
-            Our <span className="text-red-900">Services</span>
+            Our <span className="text-gray-800">Services</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Delivering safe, quick, and professional medical transport with compassion
+            Providing dignified and respectful services during difficult times
           </p>
         </div>
 
         {/* Service Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {services.map((service, index) => {
-            const Icon = service.icon;
             const isActive = activeCard === index;
 
             return (
@@ -56,47 +58,54 @@ const ServiceSection = () => {
                 key={index}
                 onMouseEnter={() => setActiveCard(index)}
                 onMouseLeave={() => setActiveCard(null)}
-                className={`relative group rounded-2xl p-8 border border-gray-200 bg-white shadow-md transition-all duration-500 transform
-                  hover:-translate-y-3 hover:shadow-xl overflow-hidden`}
+                className={`relative group rounded-2xl p-6 border border-gray-200 bg-white shadow-md transition-all duration-500 transform hover:-translate-y-3 hover:shadow-xl overflow-hidden`}
               >
-                {/* Gradient overlay animation */}
+                {/* Hover Overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br from-[#96080B] to-[#C8252C] opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br from-gray-800 to-purple-800 opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 ></div>
 
-                {/* Glow border on hover */}
+                {/* Glow Border */}
                 <div
-                  className={`absolute inset-0 border-1 rounded-2xl transition-all duration-500 ${
-                    isActive ? "border-red-200" : "border-transparent"
+                  className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
+                    isActive ? "border-2 border-indigo-200" : "border border-transparent"
                   }`}
                 ></div>
 
-                {/* Icon */}
-                <div
-                  className={`w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-xl transition-all duration-500 ${
-                    isActive
-                      ? "bg-gradient-to-br from-[#96080B] to-[#C8252C] scale-110 rotate-3 shadow-lg"
-                      : "bg-gray-100"
-                  }`}
-                >
-                  <Icon
-                    className={`w-8 h-8 ${
-                      isActive ? "text-white" : "text-[#96080B]"
-                    } transition-colors duration-500`}
+                {/* Image */}
+                <div className="w-full h-40 mb-5 rounded-xl overflow-hidden">
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className={`w-full h-full object-cover transition-all duration-500 ${
+                      isActive ? "scale-110" : "scale-100"
+                    }`}
                   />
                 </div>
 
                 {/* Text */}
                 <h3
                   className={`text-medium font-bold mb-3 transition-colors duration-500 ${
-                    isActive ? "text-[#96080B]" : "text-gray-900"
+                    isActive ? "text-gray-800" : "text-gray-900"
                   }`}
                 >
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   {service.description}
                 </p>
+
+                {/* Button */}
+                <Link 
+                  to={service.link}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition-all duration-500 shadow-md text-center inline-block relative z-10 ${
+                    isActive
+                      ? "bg-gray-800 text-white hover:bg-gray-900"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                  }`}
+                >
+                  Learn More →
+                </Link>
               </div>
             );
           })}

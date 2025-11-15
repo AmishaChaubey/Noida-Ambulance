@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { FaClock, FaHeart, FaCalendarAlt, FaAmbulance } from 'react-icons/fa';
 
 const StatsBar = () => {
   const [responseTime, setResponseTime] = useState(0);
   const [livesSaved, setLivesSaved] = useState(0);
-  const [ambulancesReady, setAmbulancesReady] = useState(0);
+  const [transportUnits, setTransportUnits] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -43,74 +42,90 @@ const StatsBar = () => {
       value: responseTime,
       suffix: 'min',
       label: 'Avg Response Time',
-      icon: <FaClock className="text-[#C8252C]" />,
+      icon: '⏱️',
       delay: 'delay-100'
     },
     {
       value: livesSaved,
       suffix: '+',
-      label: 'Lives Saved',
-      icon: <FaHeart className="text-[#C8252C]" />,
+      label: 'Bodies Preserved',
+      icon: '🕊️',
       delay: 'delay-200'
     },
     {
       value: '24/7',
       suffix: '',
       label: 'Always Available',
-      icon: <FaCalendarAlt className="text-[#C8252C]" />,
+      icon: '📅',
       delay: 'delay-300'
     },
     {
-      value: ambulancesReady,
+      value: transportUnits,
       suffix: '+',
-      label: 'Ambulances Ready',
-      icon: <FaAmbulance className="text-[#C8252C]" />,
+      label: 'Transport Vehicles Ready',
+      icon: '🚐',
       delay: 'delay-400'
     }
   ];
 
   return (
-    <div className="relative bg-gray-50 rounded-2xl shadow-xl p-4 sm:p-6 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#96080B] to-[#C8252C]"></div>
-      <div className="absolute -top-5 -right-5 w-16 h-16 rounded-full bg-[#C8252C]/10 blur-xl sm:-top-10 sm:-right-10 sm:w-20 sm:h-20"></div>
-      <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-[#96080B]/10 blur-xl sm:-bottom-10 sm:-left-10 sm:w-20 sm:h-20"></div>
+    <div className="relative bg-gray-100 py-12 px-4 overflow-hidden">
+      {/* Simple Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-gray-300 rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-gray-400 rounded-full opacity-10 blur-3xl"></div>
+      </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative z-10">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className={`text-center p-3 sm:p-4 rounded-xl transition-all duration-500 hover:shadow-lg hover:bg-[#C8252C]/5 transform hover:-translate-y-1 ${stat.delay} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          >
-            <div className="flex justify-center mb-3">
-              <div className="p-3 bg-[#C8252C]/10 rounded-full inline-flex items-center justify-center">
-                {stat.icon}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Section Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">Our Statistics</h2>
+          <div className="w-24 h-1 bg-gray-800 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Stats Container with Timeline Design */}
+        <div className="relative">
+          {/* Timeline Line for Desktop */}
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 transform -translate-y-1/2 hidden md:block"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className={`relative flex flex-col items-center transition-all duration-700 ${stat.delay} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              >
+            
+                
+                {/* Stat Card */}
+                <div className="bg-white rounded-xl shadow-lg p-6 w-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+                  {/* Icon Container */}
+                  <div className="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 text-2xl">
+                    {stat.icon}
+                  </div>
+                  
+                  {/* Value */}
+                  <div className="text-3xl font-bold text-gray-800 text-center mb-1">
+                    {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
+                    <span className="text-xl">{stat.suffix}</span>
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-sm text-gray-600 text-center">{stat.label}</div>
+                  
+                  {/* Hover Effect Line */}
+                  <div className="h-0.5 w-0 bg-gray-800 mx-auto mt-3 group-hover:w-full transition-all duration-500"></div>
+                </div>
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="text-3xl sm:text-4xl font-bold text-[#96080B] mb-1 transition-all duration-700">
-                {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
-                <span className="text-xl sm:text-2xl">{stat.suffix}</span>
-              </div>
-              {/* Animated underline */}
-              <div className="h-0.5 w-0 bg-[#C8252C] mx-auto transition-all duration-1000 group-hover:w-full"></div>
-            </div>
-
-            <div className="text-sm text-gray-600 mt-2">{stat.label}</div>
-
-            {/* Decorative dots */}
-            <div className="flex justify-center mt-3 space-x-1">
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="w-1.5 h-1.5 rounded-full bg-[#C8252C]/30"
-                  style={{ animationDelay: `${i * 0.2}s` }}
-                ></div>
-              ))}
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* Bottom Decorative Element */}
+        <div className="flex justify-center mt-12">
+          <div className="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
+            Trusted by thousands of families
+          </div>
+        </div>
       </div>
     </div>
   );

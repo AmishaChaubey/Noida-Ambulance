@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Ambulance, Shield, Activity, Star, CheckCircle, ArrowRight, Phone, MapPin } from 'lucide-react';
-import { LuInbox, LuMailbox } from "react-icons/lu";
-import { MdEmojiTransportation } from "react-icons/md";
-import { FaMaskVentilator } from "react-icons/fa6";
+import { Shield, Activity, Star, CheckCircle, ArrowRight, Phone, MapPin, Clock, Heart, Home, Car, User, Sparkles, Feather, Trees, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { IoBookOutline } from "react-icons/io5";
 
 export default function ServicesPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -20,173 +19,166 @@ export default function ServicesPage() {
   const services = [
     {
       id: 1,
-      icon: Ambulance,
-      title: 'Normal Ambulance Services',
-      description: '24/7 emergency medical assistance with fast response times, professional paramedics, and fully equipped ambulances ready to handle any urgent medical situation efficiently.',
-      details: 'Our standard ambulance service ensures prompt medical assistance at any time. We provide life-saving support, emergency transport, and quick arrival to handle urgent situations efficiently.',
-      features: ['Advanced Life Support', 'Rapid Response <8 min', 'Emergency Transport', '24/7 Availability'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
+      icon: Home,
+      title: 'Funeral Services',
+      image: "/blog-img/fu.jpg",
+      description: 'Complete end-to-end funeral arrangements with dignity and respect',
+      details: 'We provide comprehensive funeral services that honor your loved one with dignity. From preparation to final rites, our experienced team ensures every detail is handled with sensitivity and respect.',
+      features: ['Complete Arrangements', 'Dignified Handling', 'Documentation Support', '24/7 Availability'],
+      color: '#4A5568',
     },
     {
       id: 2,
-      icon: Shield,
-      title: 'Oxygen Ambulance Services',
-      description: '24/7 emergency medical assistance with fast response times, professional paramedics, and fully equipped ambulances with continuous oxygen supply and monitoring for critical patients.',
-      details: 'Our oxygen ambulance service provides patients with continuous oxygen supply during transport. Equipped with oxygen cylinders and monitoring devices, we ensure safe and stable transit to hospitals.',
-      features: ['Oxygen Supply', 'Medical Monitoring', 'Rapid Response', 'Trained Staff'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
+      icon: Heart,
+      title: 'Funeral Ceremony',
+      image: "/blog-img/8.jpg",
+      description: 'Traditional and contemporary funeral ceremonies conducted with reverence',
+      details: 'Our ceremony services blend traditional customs with personal touches to create a meaningful farewell. We coordinate all aspects of the ceremony according to your cultural and religious preferences.',
+      features: ['Traditional Rituals', 'Custom Ceremonies', 'Flower Arrangements', 'Memorial Setup'],
+      color: '#718096',
     },
     {
       id: 3,
-      icon: FaMaskVentilator,
-      title: 'ICU Ventilator Ambulances',
-      description: '24/7 emergency medical assistance with fast response times, professional paramedics, and fully equipped ambulances with ventilator support and critical care monitoring for emergencies.',
-      details: 'Our ICU ventilator ambulances offer advanced life support during transport. Each unit includes ventilators, monitors, and a team of skilled paramedics to handle intensive care emergencies.',
-      features: ['Ventilator Support', 'ICU Monitoring', 'Critical Care Team', 'Emergency Transport'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
+      icon: Car,
+      title: 'Transportation Services',
+      image: "/blog-img/9.jpg",
+      description: 'Dignified and respectful transportation for the deceased',
+      details: 'We provide specialized transportation services with freezer boxes and proper handling. Our vehicles are equipped to maintain dignity and respect during transit to any location.',
+      features: ['Freezer Box Transport', 'Temperature Controlled', 'Professional Staff', 'Multi-location Service'],
+      color: '#2D3748',
     },
     {
       id: 4,
-      icon: MdEmojiTransportation,
-      title: 'Dead Body Transport Ambulance',
-      description: '24/7 emergency transport services with fast response, professional handling, and fully equipped ambulances providing dignified and secure transport for deceased individuals.',
-      details: 'Our dead body transport service ensures safe and respectful transfer of deceased persons. We provide sealed compartments, temperature control, and professional handling throughout the journey.',
-      features: ['Secure Transport', 'Temperature Controlled', 'Professional Handling', 'Dignified Service'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
-    },
-    {
-      id: 5,
-      icon: LuMailbox,
-      title: 'Dead Body Freezer Box Ambulance',
-      description: '24/7 emergency transport services with fast response, professional handling, and fully equipped ambulances with freezer boxes to preserve deceased bodies safely and hygienically.',
-      details: 'Our freezer box ambulance service provides proper cold storage for deceased bodies. This service ensures preservation during transit with hygienic and temperature-controlled compartments.',
-      features: ['Temperature Controlled', 'Hygienic Storage', 'Safe Transport', 'Professional Service'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
-    },
-    {
-      id: 6,
-      icon: LuInbox,
-      title: 'Dead Body Freezer Box on Rent',
-      description: '24/7 emergency rental services with fast response, professional handling, and portable freezer boxes to preserve deceased bodies safely and hygienically at any location.',
-      details: 'We offer freezer boxes on rent for short-term storage of deceased bodies. This service ensures proper preservation, easy transport, and professional handling as per requirements.',
-      features: ['Rental Service', 'Temperature Controlled', 'Portable Boxes', 'Hygienic Handling'],
-      color: 'from-red-500 to-red-600',
-      hoverGradient: 'from-red-200 to-red-400',
+      icon: User,
+      title: 'Pandit for Funeral',
+      image: "/blog-img/pandit.jpg",
+      description: 'Experienced and knowledgeable pandits for conducting funeral rites',
+      details: 'We arrange experienced pandits who understand the importance of proper funeral rites. They guide families through the process with patience and respect for traditions.',
+      features: ['Experienced Pandits', 'All Rituals Covered', 'Puja Materials', 'Guidance & Support'],
+      color: '#1A202C',
     },
   ];
 
   const processSteps = [
     {
-      title: 'Call Received',
-      description: 'Our dispatch center receives your call and gathers essential information',
+      title: 'Initial Contact',
+      description: 'Reach out to our compassionate team',
       icon: Phone,
+      bg: 'bg-blue-50',
     },
     {
-      title: 'Dispatch',
-      description: 'Nearest available ambulance is dispatched to your location',
-      icon: MapPin,
+      title: 'Service Planning',
+      description: 'Personalized arrangements discussion',
+      icon: Clock,
+      bg: 'bg-purple-50',
     },
     {
-      title: 'Arrival & Care',
-      description: 'Medical team arrives and provides immediate care',
+      title: 'Service Execution',
+      description: 'Dignified service delivery',
       icon: Activity,
+      bg: 'bg-pink-50',
     },
     {
-      title: 'Transport',
-      description: 'Patient is safely transported to appropriate medical facility',
-      icon: Ambulance,
+      title: 'Final Support',
+      description: 'Complete assistance through farewell',
+      icon: Heart,
+      bg: 'bg-indigo-50',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 to-gray-100">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-[#96080B] to-[#C8252C] text-white mt-25">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-
-        <div className={`relative max-w-7xl mx-auto px-6 py-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6 animate-blink">
-              <Ambulance className="w-10 h-10" />
-            </div>
-
-            <style jsx>{`
-              @keyframes blink {
-                0%, 50%, 100% {
-                  opacity: 1;
-                }
-                25%, 75% {
-                  opacity: 0.5;
-                }
-              }
-              .animate-blink {
-                animation: blink 5s infinite;
-              }
-            `}</style>
-
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 font-serif">Our Services</h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto mb-10">
-              Comprehensive ambulance and medical transport services designed to meet all your emergency and non-emergency needs.
-            </p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      {/* Hero Section - New Design */}
+      <div className="relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-200 rounded-full filter blur-3xl"></div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 80L60 70C120 60 240 40 360 30C480 20 600 20 720 26.7C840 33.3 960 46.7 1080 50C1200 53.3 1320 46.7 1380 43.3L1440 40V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="#F9FAFB"/>
-          </svg>
+        {/* Content */}
+        <div className="relative overflow-hidden text-white mt-15 h-96 md:h-[500px]">
+          {/* Background Image with Parallax Effect */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('/banner6.png')" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/70 to-transparent"></div>
+          </div>
+
+          <div
+            className={`relative max-w-7xl mx-auto px-6 h-full flex items-center transform transition-all duration-1000 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+          >
+            <div className="w-full text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 font-serif leading-tight drop-shadow-lg">
+                Our Services
+              </h1>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto mb-10 drop-shadow">
+                Explore medical stories, health tips, and ambulance service updates.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Services Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What <span className="text-red-900"> We Offer</span></h2>
+      {/* Services Section - New Card Design */}
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our <span className="text-gray-600">Services</span></h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional medical transport services for every situation, from life-threatening emergencies to scheduled transfers.
+            Comprehensive support services to help you navigate this difficult time
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const isActive = activeService === index;
-
             return (
               <div
                 key={service.id}
-                className={`group relative bg-white rounded-2xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                onClick={() => setActiveService(index)}
+                className={`group relative transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.hoverGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0`}></div>
-                <div className="relative z-10 bg-white group-hover:bg-transparent transition-colors duration-500">
-                  <div className="p-8">
-                    <div className="relative mb-6">
-                      <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-1`}>
-                        <Icon className="w-10 h-10 text-white" />
-                      </div>
+                <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                  {/* Image Section */}
+                  <div className="relative h-73 overflow-hidden">
+                  
+
+                    {/* IMAGE Instead of Icon */}
+                    <div className="relative h-full  flex items-center justify-center">
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className=" h-full object-cover w-full" 
+                      />
                     </div>
 
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-black transition-colors duration-500">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-500 leading-relaxed text-sm">
-                      {service.description}
-                    </p>
+                    <div className={`absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center transform transition-all duration-500 
+                      ${hoveredCard === index ? 'rotate-12 scale-110' : ''}`}>
+                      <Sparkles className="w-6 h-6 text-gray-600" />
+                    </div>
                   </div>
+                  
+                  {/* Content Section */}
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
 
-                  {/* Fixed underline accent */}
-                  {/* <div className={`h-2 bg-gradient-to-r ${service.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div> */}
+                    <div className="space-y-3 mb-6">
+                      {service.features.slice(0, 2).map((feature, idx) => (
+                        <div key={idx} className="flex items-center">
+                          <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -194,73 +186,121 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* Service Details */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="lg:w-1/2">
-              <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 bg-gradient-to-br ${services[activeService].color}`}>
-                {React.createElement(services[activeService].icon, { className: 'w-10 h-10 text-white' })}
+      {/* Service Details - New Design */}
+      <div className="bg-gradient-to-br from-gray-50 to-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div
+            className={`bg-white rounded-3xl shadow-xl overflow-hidden transform transition-all duration-1000 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+            }`}
+          >
+            <div className="grid md:grid-cols-2 gap-0">
+              
+              {/* Left Side - Visual */}
+              <div className="relative h-64 md:h-auto">
+                <div
+                  className="absolute inset-0 bg-gradient-to-br opacity-90"
+                  style={{ backgroundColor: services[activeService].color }}
+                ></div>
+
+                <div className="relative h-full flex items-center justify-center p-12">
+                  <div className="text-center text-white">
+                    {/* Updated Part — Image Instead of Emoji/Icon */}
+                    <img
+                      src="/blog-img/12.jpg"
+                      alt={services[activeService].title}
+                      className="w-full h-full mx-auto mb-6 object-contain"
+                    />
+
+                    <h3 className="text-3xl font-bold mb-4">
+                      {services[activeService].title}
+                    </h3>
+                    <div className="w-20 h-1 bg-white mx-auto opacity-50"></div>
+                  </div>
+                </div>
               </div>
 
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{services[activeService].title}</h2>
-              <p className="text-gray-600 mb-6">{services[activeService].details}</p>
+              {/* Right Side - Content */}
+              <div className="p-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Service Details</h2>
 
-              <div className="mb-8">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Key Features:</h3>
-                <div className="grid grid-cols-2 gap-4">
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  {services[activeService].details}
+                </p>
+
+                <div className="space-y-3 mb-8">
                   {services[activeService].features.map((feature, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-[#C8252C] mt-0.5 mr-3 flex-shrink-0" />
+                    <div key={index} className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
+
+                <Link to="/contact">
+                  <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                    Request This Service
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </button>
+                </Link>
               </div>
 
-              <Link to="/contact">
-                <button className="bg-gradient-to-r from-[#96080B] to-[#C8252C] text-white px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 flex items-center gap-2">
-                  Request This Service
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </div>
-
-            <div className="lg:w-1/2 w-full rounded-2xl h-64 md:h-80 lg:h-96 flex items-center justify-center overflow-hidden relative">
-              <img src="/amb2.png" alt="Ambulance Service" className="w-full h-full object-cover rounded-2xl" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Process Section */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className={`text-center mb-16 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
-            How <span className="text-red-900"> It Works</span>
-          </h2>
+      {/* Process Section - New Design */}
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">How We <span className="text-gray-600">Support You</span></h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our streamlined process ensures you receive the fastest, most effective medical transport service when you need it most.
+            Our caring team is here to guide you through every step
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-6">
           {processSteps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
-                className={`bg-white rounded-2xl shadow-lg p-6 text-center transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`text-center transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#96080B] to-[#C8252C] rounded-full mb-4">
-                  <Icon className="w-8 h-8 text-white" />
+                <div className="relative mb-6">
+                  <div className={`w-24 h-24 mx-auto rounded-full ${step.bg} flex items-center justify-center transform transition-all duration-500 hover:scale-110`}>
+                    <Icon className="w-12 h-12 text-gray-700" />
+                  </div>
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gray-300 -translate-y-1/2"></div>
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600 text-sm">{step.description}</p>
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-gradient-to-br from-gray-100 to-white py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <div className="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-lg mb-6">
+              <Heart className="w-8 h-8 text-gray-600" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">We're Here For You</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Contact us anytime for compassionate support and professional funeral services
+            </p>
+            <Link to="/contact">
+              <button className="px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                Get In Touch
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

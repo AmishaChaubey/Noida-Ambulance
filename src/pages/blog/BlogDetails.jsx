@@ -21,7 +21,7 @@ export default function BlogDetail() {
           <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist or has been removed.</p>
           <button
             onClick={() => navigate("/blog")}
-            className="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300 flex items-center justify-center gap-2 mx-auto"
+            className="px-8 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center gap-2 mx-auto"
           >
             <ArrowLeft size={18} />
             Back to Blog
@@ -34,12 +34,12 @@ export default function BlogDetail() {
   return (
     <div className="min-h-screen bg-gray-50 mt-20">
       {/* Back Button - Sticky at top */}
-      <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm py-4 px-6 border-b border-gray-200">
+      <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm px-6 border-b border-gray-200">
       
       </div>
 
       {/* Banner Image Section */}
-      <div className="relative h-[60vh] max-h-[600px] w-full overflow-hidden">
+      <div className="relative h-[80vh] max-h-[800px] w-full overflow-hidden">
         <img
           src={blog.image}
           alt={blog.title}
@@ -122,7 +122,7 @@ export default function BlogDetail() {
                   <div className="max-w-5xl mx-auto">
           <button
             onClick={() => navigate("/blog")}
-            className="flex items-center gap-2 text-white p-3 rounded-4xl hover:bg-red-600 transition-colors duration-300 bg-red-900"
+            className="flex items-center gap-2 text-white p-3 rounded-4xl hover:bg-gray-600 transition-colors duration-300 bg-gray-800"
           >
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Blog</span>

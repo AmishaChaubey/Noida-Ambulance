@@ -16,8 +16,10 @@ import Testimonials from "./pages/home/Testimonial";
 import BlogList from "./pages/blog/Blog";
 import BlogDetail from "./pages/blog/BlogDetails";
 import ServiceSection from "./pages/home/ServiceSection";
-import WhatsAppIcon from "./pages/home/icon";
+
 import Call from './components/Call'
+import CallIcon from "./components/Call";
+import WhatsAppIcon from "./pages/home/Icon";
 
 
 const App = () => {
@@ -50,7 +52,7 @@ const App = () => {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/services" element={<ServicesPage />} />
         </Routes>
-        <Call/>
+        <CallIcon/>
 <WhatsAppIcon/>
         <Footer />
       </div>
