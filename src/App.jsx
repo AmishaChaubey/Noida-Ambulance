@@ -19,7 +19,7 @@ import ServiceSection from "./pages/home/ServiceSection";
 
 import Call from './components/Call'
 import CallIcon from "./components/Call";
-import WhatsAppIcon from "./pages/home/Icon";
+//import WhatsAppIcon from "./pages/home/Icon";
 
 
 const App = () => {
@@ -54,7 +54,7 @@ const App = () => {
           <Route path="/services" element={<ServicesPage />} />
         </Routes>
         <CallIcon/>
-<WhatsAppIcon/>
+{/*<WhatsAppIcon/>*/}
         <Footer />
       </div>
     </Router>
