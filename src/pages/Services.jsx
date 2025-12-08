@@ -137,9 +137,7 @@ export default function ServicesPage() {
                 <Phone className="mr-3 w-5 h-5" />
                 Call Now
               </Link>
-              <Link to="/services" className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0097b2] transition-all">
-                Our Services <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
+             
             </div>
           </div>
         </div>
@@ -169,10 +167,7 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center bg-[#e6f7fb] rounded-full px-4 sm:px-6 py-2 mb-4">
-              <Sparkles className="w-4 h-4 mr-2 text-[#0097b2]" />
-              <span className="text-sm font-bold text-gray-700">OUR SERVICES</span>
-            </div>
+         
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0097b2] font-serif">
               Comprehensive <span className="text-gray-900">Care Solutions</span>
             </h2>
@@ -207,9 +202,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <div className="w-full text-center bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-6 py-3 rounded-xl font-bold cursor-pointer hover:shadow-lg transition-all">
-                      Book Service <ArrowRight className="inline ml-2 w-5 h-5" />
-                    </div>
+                 
                   </div>
                 </Link>
               );
@@ -269,9 +262,7 @@ export default function ServicesPage() {
               <Phone className="mr-3 w-5 h-5 inline" />
               Call Now
             </Link>
-            <button className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0097b2] transition-all">
-              Request Callback <ArrowRight className="inline ml-2 w-5 h-5" />
-            </button>
+          
           </div>
         </div>
       </section>

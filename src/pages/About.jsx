@@ -131,14 +131,12 @@ export default function AboutPageRedesign() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="group px-6 py-3 bg-white text-[#0097b2] rounded-lg font-semibold hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+            <Link to='/contact'><button className="group px-6 py-3 bg-white text-[#0097b2] rounded-lg font-semibold hover:shadow-xl transition-all duration-300 flex items-center gap-2">
               <Phone className="w-5 h-5" />
               Emergency 24/7
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-300">
-              Learn More
-            </button>
+            </button></Link>
+          
           </motion.div>
         </motion.div>
       </section>
