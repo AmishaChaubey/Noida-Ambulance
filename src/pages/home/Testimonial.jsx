@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, Shield, Clock, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Shield, Clock, MapPin, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Testimonials() {
@@ -95,15 +95,19 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-4 sm:px-6 md:px-8">
+    <div className="bg-gradient-to-br from-white to-[#f0fbff] py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#3f9ad1] mb-3">
-            Client <span className="text-red-600">Experiences</span>
+          <div className="inline-flex items-center bg-[#e6f7fb] rounded-full px-6 py-2 mb-4">
+            <Star className="w-4 h-4 mr-2 text-[#0097b2]" />
+            <span className="text-sm font-bold text-gray-700">TESTIMONIALS</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0097b2] mb-3">
+            Client <span className="text-gray-900">Experiences</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
             Hear from those who have experienced our compassionate care during critical moments.
           </p>
         </div>
@@ -113,34 +117,39 @@ export default function Testimonials() {
           {/* Navigation */}
           <button
             onClick={prevSlide}
-            className="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 sm:p-3 shadow-md hover:shadow-xl hover:scale-110 transition-all"
+            className="absolute left-0 sm:left-3 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 transition-all border border-[#e6f7fb]"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-red-600" />
+            <ChevronLeft className="w-6 h-6 text-[#0097b2]" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 sm:p-3 shadow-md hover:shadow-xl hover:scale-110 transition-all"
+            className="absolute right-0 sm:right-3 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl hover:scale-110 transition-all border border-[#e6f7fb]"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-red-600" />
+            <ChevronRight className="w-6 h-6 text-[#0097b2]" />
           </button>
 
           {/* Testimonials Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 sm:px-2 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 sm:px-2 md:px-8">
             {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 relative"
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
               >
+                {/* Quote Icon */}
+                <div className="absolute top-4 right-4 text-[#e6f7fb]">
+                  <Quote className="w-12 h-12" />
+                </div>
+
                 {/* Badge */}
-                <div className="absolute top-0 right-0 bg-[#3f9ad1] text-white text-xs px-3 py-1 rounded-bl-lg flex items-center gap-1">
+                <div className="inline-flex items-center bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white text-xs px-4 py-2 rounded-full mb-4">
                   {testimonial.icon}
                   {testimonial.service}
                 </div>
 
                 {/* Avatar & Info */}
                 <div className="flex items-start mb-4">
-                  <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center font-bold border-2 border-[#3f9ad1] mr-3">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#e6f7fb] to-[#d0f0fc] rounded-full flex items-center justify-center font-bold text-[#0097b2] text-xl border-2 border-[#0097b2] mr-4 shadow-md">
                     {getInitials(testimonial.name)}
                   </div>
                   <div>
@@ -155,12 +164,12 @@ export default function Testimonials() {
                 </div>
 
                 {/* Text */}
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-700 leading-relaxed text-base">
                   "{testimonial.text}"
                 </p>
 
                 {/* Hover bar */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#0097b2] to-[#007a95] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </div>
             ))}
           </div>
@@ -173,24 +182,25 @@ export default function Testimonials() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex ? "bg-red-600 w-8" : "bg-gray-300 w-2"
+                index === currentIndex ? "bg-[#0097b2] w-8" : "bg-gray-300 w-2"
               }`}
             />
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4 text-sm sm:text-base">
-            Need our services? We're here for you 24/7
+        <div className="text-center mt-12 bg-gradient-to-r from-[#0097b2] to-[#007a95] rounded-2xl p-8 shadow-xl">
+          <h3 className="text-2xl font-bold text-white mb-4">Need Our Services?</h3>
+          <p className="text-gray-100 mb-6 text-base sm:text-lg max-w-2xl mx-auto">
+            We're here for you 24/7 with compassionate care when you need it most
           </p>
-          <div className="inline-flex items-center gap-4 flex-wrap justify-center">
-            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full text-sm sm:text-base">
-              Emergency: +91 7678309495
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+919917162727" className="bg-white hover:bg-gray-100 text-[#0097b2] font-bold py-3 px-6 rounded-full text-base shadow-lg hover:shadow-xl transition-all">
+              Emergency: +91 9917162727
+            </a>
 
             <Link to="/contact">
-              <button className="border border-gray-300 hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-full text-sm sm:text-base">
+              <button className="border-2 border-white hover:bg-white hover:text-[#0097b2] text-white font-bold py-3 px-6 rounded-full text-base transition-all">
                 Contact Us
               </button>
             </Link>

@@ -33,78 +33,78 @@ export default function ContactPage() {
     {
       icon: PhoneCall,
       title: '24/7 Emergency Helpline',
-      detail: '+91 7678309495',
-      color: 'from-red-700 to-red-800',
-      description: 'Available round the clock for emergencies'
+      detail: '+91 9917162727',
+      color: 'from-[#0097b2] to-[#007a94]',
+  
     },
     {
       icon: Mail,
       title: 'Email Support',
-      detail: 'idealpackersandmoversindia@gmail.com',
-      color: 'from-red-700 to-red-800',
-      description: 'We respond within 2 hours'
+      detail: 'info@noidaambulanceservice.online',
+      color: 'from-[#0097b2] to-[#007a94]',
+     
     },
     {
       icon: MapPin,
       title: 'Our Location',
-      detail: '505, Gaur City Center, Sector 4, Greater Noida, 201009',
-      color: 'from-red-700 to-red-800',
-      description: 'Visit us anytime'
+      detail: ' Shop No.04,Gali No. 06,Durga Enclave,Haibatpur,Nai Basti Dundahera,Gr.Noida,UP',
+      color: 'from-[#0097b2] to-[#007a94]',
+    
     }
   ];
 
-  const faqs = [
-    { 
-      question: 'How quickly can you provide an ambulance?', 
-      answer: 'We provide ambulance services within 30 minutes of your call in Noida, Greater Noida, and Delhi NCR region.',
-      icon: Clock
-    },
-    { 
-      question: 'What types of ambulances do you have?', 
-      answer: 'We have basic life support, advanced life support, and mortuary ambulances equipped with freezer boxes for dignified transportation.',
-      icon: Truck
-    },
-    { 
-      question: 'What is the temperature maintained in your freezer boxes?', 
-      answer: 'Our freezer boxes maintain a temperature between -15°C to -20°C, ensuring proper preservation of the deceased.',
-      icon: Thermometer
-    },
-    { 
-      question: 'Do you provide freezer boxes for home use?', 
-      answer: 'Yes, we provide freezer boxes in various sizes (4ft to 7ft) for home use before funeral ceremonies.',
-      icon: Home
-    },
-    { 
-      question: 'How long can the freezer box maintain the temperature?', 
-      answer: 'Our freezer boxes can maintain the required temperature for up to 48 hours without electricity, and indefinitely with power supply.',
-      icon: Shield
-    },
-    { 
-      question: 'Do you provide services for transporting bodies to other states?', 
-      answer: 'Yes, we provide inter-state transportation services with all necessary documentation and preservation facilities.',
-      icon: MapPin
-    },
-    { 
-      question: 'Are your staff trained to handle sensitive situations?', 
-      answer: 'Yes, our staff is professionally trained to handle sensitive situations with empathy, respect, and complete discretion.',
-      icon: Users
-    },
-    { 
-      question: 'What documents are required for availing your services?', 
-      answer: 'For ambulance services, we require ID proof of the caller. For deceased transportation, we need the death certificate and ID proof of the deceased.',
-      icon: AlertCircle
-    },
-    { 
-      question: 'Do you provide embalming services?', 
-      answer: 'Yes, we provide professional embalming services performed by certified embalmers to preserve the body for extended periods.',
-      icon: CheckCircle
-    },
-    { 
-      question: 'What payment methods do you accept?', 
-      answer: 'We accept cash, UPI, credit/debit cards, and bank transfers. We also provide insurance billing assistance where applicable.',
-      icon: CreditCard
-    }
-  ];
+ const faqs = [
+  { 
+    question: 'How quickly can you arrange an ambulance service?', 
+    answer: 'We provide fast ambulance service with an average response time of 20–30 minutes across Noida, Greater Noida, Ghaziabad, and Delhi NCR. Our team is available 24/7 for emergency medical transport.',
+    icon: Clock
+  },
+  { 
+    question: 'What types of ambulances are available?', 
+    answer: 'We offer Basic Life Support (BLS), Advanced Life Support (ALS), ICU ambulances, dead body ambulances, and mortuary vans with freezer boxes. Each vehicle is equipped to ensure safe and professional transportation.',
+    icon: Truck
+  },
+  { 
+    question: 'What temperature do your freezer boxes maintain?', 
+    answer: 'Our ambulance freezer boxes and mortuary freezers maintain a controlled temperature between -15°C to -20°C, ensuring proper preservation during transportation or home use.',
+    icon: Thermometer
+  },
+  { 
+    question: 'Do you provide freezer boxes for home use?', 
+    answer: 'Yes, we provide home delivery of freezer boxes ranging from 4ft to 7ft. These are ideal for preserving the deceased at home before funeral or cremation rituals.',
+    icon: Home
+  },
+  { 
+    question: 'How long can your freezer boxes preserve the body?', 
+    answer: 'Our high-quality freezer boxes can preserve the body for up to 48 hours without electricity and for an extended duration when connected to continuous power supply.',
+    icon: Shield
+  },
+  { 
+    question: 'Do you offer dead body transportation to other states?', 
+    answer: 'Yes, we provide pan-India dead body transportation services by road and air ambulance, along with complete documentation support such as NOC, embalming certificate, and ID proof.',
+    icon: MapPin
+  },
+  { 
+    question: 'Are your staff trained for sensitive situations?', 
+    answer: 'Absolutely. Our team is highly trained to handle emergency and deceased transportation cases with compassion, dignity, and professionalism. Your family’s comfort and privacy are our utmost priority.',
+    icon: Users
+  },
+  { 
+    question: 'What documents are required for ambulance or dead body transport?', 
+    answer: 'For medical ambulance service, only ID proof is needed. For dead body transport, a death certificate, hospital release letter, and ID proof of the deceased are required.',
+    icon: AlertCircle
+  },
+  { 
+    question: 'Do you provide embalming services?', 
+    answer: 'Yes, we offer certified embalming services performed by professional embalmers to ensure proper preservation of the body for long-distance transportation or ceremonies.',
+    icon: CheckCircle
+  },
+  { 
+    question: 'What payment methods do you accept?', 
+    answer: 'We accept cash, UPI, credit/debit cards, and bank transfers. We also assist with medical insurance claim support for eligible ambulance services.',
+    icon: CreditCard
+  }
+];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +115,7 @@ export default function ContactPage() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost/bobby ambulance/backend/send-mail.php", {
+      const res = await fetch("http://localhost/noida ambulance/backend/send-mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -139,47 +139,29 @@ export default function ContactPage() {
       {/* ---------------- HERO SECTION ---------------- */}
       <section className="relative min-h-[70vh] lg:min-h-screen overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center mt-15"
           style={{
-            backgroundImage: "url('/banner8.png')",
+            backgroundImage: "url('/ban/4.png')",
             transform: `translateY(${scrollY * 0.4}px)`,
           }}
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         {/* Content */}
         <div className="relative min-h-[70vh] lg:min-h-screen flex items-center px-4 sm:px-6 md:px-8 lg:px-12 py-20">
           <div className="w-full max-w-4xl">
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl  font-black text-white leading-tight mb-3">
               Contact Us for <br />
-              <span className="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">
                 Emergency Services
-              </span>
+            
             </h1>
 
             <p className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 mb-8 leading-relaxed">
               24/7 ambulance services & dead body freezer box rentals with professional care and dignity.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a 
-                href="tel:+919540455867" 
-                className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 sm:px-8 rounded-lg flex items-center justify-center transition-colors w-full sm:w-auto"
-              >
-                <PhoneCall className="w-5 h-5 mr-2 flex-shrink-0" />
-                <span className="hidden sm:inline">Call Now</span>
-                <span className="sm:hidden">Call</span>
-              </a>
-              <a 
-                href="#contact-form" 
-                className="bg-transparent border-2 border-white text-white font-bold py-3 px-6 sm:px-8 rounded-lg flex items-center justify-center hover:bg-white hover:text-red-700 transition-colors w-full sm:w-auto"
-              >
-                <MessageSquare className="w-5 h-5 mr-2 flex-shrink-0" />
-                <span className="hidden sm:inline">Send Message</span>
-                <span className="sm:hidden">Message</span>
-              </a>
-            </div>
+     
           </div>
         </div>
 
@@ -238,7 +220,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     name="name"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent"
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={handleInputChange}
@@ -255,7 +237,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     name="email"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent"
                     placeholder="your.email@example.com"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -272,7 +254,7 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     name="phone"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent"
                     placeholder="+91 99999 99999"
                     value={formData.phone}
                     onChange={handleInputChange}
@@ -288,7 +270,7 @@ export default function ContactPage() {
                   <HelpCircle className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <select
                     name="service"
-                    className="w-full pl-12 pr-10 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent appearance-none"
+                    className="w-full pl-12 pr-10 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent appearance-none"
                     value={formData.service}
                     onChange={handleInputChange}
                     required
@@ -312,7 +294,7 @@ export default function ContactPage() {
                   <textarea
                     name="message"
                     rows="4"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent"
                     placeholder="Tell us how we can help you..."
                     value={formData.message}
                     onChange={handleInputChange}
@@ -324,7 +306,7 @@ export default function ContactPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-red-700 to-red-800 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#0097b2] to-[#007a94] text-white py-4 rounded-xl font-semibold hover:opacity-90 transition flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Send Message
@@ -334,7 +316,7 @@ export default function ContactPage() {
 
           {/* MAP */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="p-6 bg-gradient-to-r from-red-700 to-red-800">
+            <div className="p-6 bg-gradient-to-r from-[#0097b2] to-[#007a94]">
               <h3 className="text-xl lg:text-2xl text-white font-bold">Visit Our Office</h3>
               <p className="text-gray-200 text-sm mt-1">505, Gaur City Center, Sector 4, Greater Noida</p>
             </div>
@@ -342,7 +324,7 @@ export default function ContactPage() {
             <div className="h-96 lg:h-[500px]">
               <iframe
                 title="Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28021.382002794104!2d77.42547347946997!3d28.609592654146276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s505%2C%20Gaur%20City%20Center%2C%20Sector%204%2C%20Greater%20Noida%2C%20201009!5e0!3m2!1sen!2sin!4v1764335278324!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.772413522872!2d77.42287807148972!3d28.636582330131116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee2c6383af05%3A0xa28416eb897aaf41!2sNo.%2004%2C%204%2C%20Biharipura%2C%20Nai%20Basti%20Dundahera%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201009!5e0!3m2!1sen!2sin!4v1765195652456!5m2!1sen!2sin"
                 className="w-full h-full grayscale hover:grayscale-0 transition"
                 allowFullScreen=""
                 loading="lazy"
@@ -356,8 +338,8 @@ export default function ContactPage() {
       {/* ---------------- FAQ SECTION ---------------- */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 mt-8 md:mt-12 lg:mt-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#3f9ad1] font-serif mb-4">
-            Frequently Asked <span className="text-red-700">Questions</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0097b2] font-serif mb-4">
+            Frequently Asked <span className="text-[#0097b2]">Questions</span>
           </h2>
           <p className="text-lg text-gray-600">
             Quick answers about our ambulance and dead body freezer box services
@@ -377,8 +359,8 @@ export default function ContactPage() {
                   className="w-full p-5 lg:p-6 text-left flex justify-between items-start"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-red-700" />
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-[#0097b2]" />
                     </div>
                     <h3 className="text-base lg:text-lg font-bold text-gray-900 pr-2">{faq.question}</h3>
                   </div>
@@ -403,7 +385,7 @@ export default function ContactPage() {
       </div>
 
       {/* ---------------- EMERGENCY BANNER ---------------- */}
-      <section className="bg-gradient-to-r from-red-700 to-red-800 py-12 sm:py-16 lg:py-20 mt-8 md:mt-12 lg:mt-16">
+      <section className="bg-gradient-to-r from-[#0097b2] to-[#007a94] py-12 sm:py-16 lg:py-20 mt-8 md:mt-12 lg:mt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
             Need Immediate Assistance?
@@ -413,15 +395,15 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:+919540455867" 
-              className="bg-white text-red-700 font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors w-full sm:w-auto"
+              href="tel:+919917162727" 
+              className="bg-white text-[#0097b2] font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors w-full sm:w-auto"
             >
               <PhoneCall className="w-5 h-5 mr-2 flex-shrink-0" />
-              Call +91 7678309495
+              Call +91 9917162727
             </a>
             <a 
               href="mailto:bobbyambulance@gmail.com" 
-              className="bg-transparent border-2 border-white text-white font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-white hover:text-red-700 transition-colors w-full sm:w-auto"
+              className="bg-transparent border-2 border-white text-white font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-white hover:text-[#0097b2] transition-colors w-full sm:w-auto"
             >
               <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
               Email Us

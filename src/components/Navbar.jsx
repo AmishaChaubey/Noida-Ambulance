@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Phone, Heart, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Heart, Mail, MapPin, Clock, Shield, Activity } from 'lucide-react';
 
 export default function FuneralNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // UPDATED formData: Added email
+  // Track scroll for navbar styling
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,7 +31,6 @@ export default function FuneralNavbar() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // UPDATED EMAIL SUBMISSION
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -65,18 +73,20 @@ export default function FuneralNavbar() {
   };
 
   return (
-    <nav className="bg-white fixed w-full top-0 z-50 shadow-md border-b border-gray-200">
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+    }`}>
       {/* Top Info Bar */}
-      <div className="bg-red-700 text-white text-xs border-b border-gray-300 hidden sm:block">
+      <div className="bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white text-xs border-b border-[#e6f7fb] hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-1">
               <Phone className="w-3 h-3" />
-              <span className="text-xs sm:text-sm">+91 7678309495</span>
+              <span className="text-xs sm:text-sm">+91 9917162727</span>
             </div>
             <div className="flex items-center gap-1">
               <Mail className="w-3 h-3" />
-              <span className="text-xs sm:text-sm">idealpackersandmoversindia@gmail.com</span>
+              <span className="text-xs sm:text-sm">info@noidaambulanceservice.online</span>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -91,42 +101,51 @@ export default function FuneralNavbar() {
         <div className="flex justify-between items-center h-16 sm:h-20">
 
           <Link to="/" className="flex items-center gap-2">
-            {/* Fixed logo container with proper Tailwind classes */}
             <div className="w-32 h-16 sm:w-48 sm:h-20 overflow-hidden">
-              <img src="/bobby-logo.png" alt="Logo" className="w-full h-full object-contain" />
+              <img src="/Noida-logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             <Link to="/" onClick={() => setActiveLink('home')}
-              className={`text-sm font-medium ${activeLink === 'home' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+              className={`text-sm font-medium transition-colors ${
+                activeLink === 'home' ? 'text-[#0097b2]' : 'text-gray-600 hover:text-[#0097b2]'
+              }`}>
               Home
             </Link>
 
             <Link to="/about" onClick={() => setActiveLink('about')}
-              className={`text-sm font-medium ${activeLink === 'about' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+              className={`text-sm font-medium transition-colors ${
+                activeLink === 'about' ? 'text-[#0097b2]' : 'text-gray-600 hover:text-[#0097b2]'
+              }`}>
               About Us
             </Link>
 
             <Link to="/services" onClick={() => setActiveLink('services')}
-              className={`text-sm font-medium ${activeLink === 'services' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+              className={`text-sm font-medium transition-colors ${
+                activeLink === 'services' ? 'text-[#0097b2]' : 'text-gray-600 hover:text-[#0097b2]'
+              }`}>
               Services
             </Link>
 
             <Link to="/blog" onClick={() => setActiveLink('blog')}
-              className={`text-sm font-medium ${activeLink === 'blog' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+              className={`text-sm font-medium transition-colors ${
+                activeLink === 'blog' ? 'text-[#007a95]' : 'text-gray-600 hover:text-[#007a95]'
+              }`}>
               Blog
             </Link>
 
             <Link to="/contact" onClick={() => setActiveLink('contact')}
-              className={`text-sm font-medium ${activeLink === 'contact' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+              className={`text-sm font-medium transition-colors ${
+                activeLink === 'contact' ? 'text-[#0097b2]' : 'text-gray-600 hover:text-[#0097b2]'
+              }`}>
               Contact
             </Link>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-red-700 text-white px-3 sm:px-5 py-2 rounded-lg flex items-center gap-2 shadow-md text-xs sm:text-sm"
+              className="bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-3 sm:px-5 py-2 rounded-lg flex items-center gap-2 shadow-md text-xs sm:text-sm hover:shadow-lg transition-all"
             >
               <Phone className="w-4 h-4" /> <span className="hidden sm:inline">Book Now</span>
             </button>
@@ -135,7 +154,7 @@ export default function FuneralNavbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-600 hover:text-gray-900 p-1"
+            className="md:hidden text-gray-600 hover:text-[#0097b2] p-1 transition-colors"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -144,98 +163,112 @@ export default function FuneralNavbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-white transition-all duration-300 overflow-hidden border-b border-gray-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden bg-white transition-all duration-300 overflow-hidden border-b border-[#e6f7fb] ${
+        isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+      }`}>
         <div className="px-4 py-4 space-y-2">
-          <Link to="/" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-gray-900 py-2">Home</Link>
-          <Link to="/about" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-gray-900 py-2">About Us</Link>
-          <Link to="/services" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-gray-900 py-2">Services</Link>
-          <Link to="/blog" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-gray-900 py-2">Blog</Link>
-          <Link to="/contact" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-gray-900 py-2">Contact</Link>
+          <Link to="/" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-[#0097b2] py-2 transition-colors">Home</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-[#0097b2] py-2 transition-colors">About Us</Link>
+          <Link to="/services" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-[#0097b2] py-2 transition-colors">Services</Link>
+          <Link to="/blog" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-[#0097b2] py-2 transition-colors">Blog</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-[#0097b2] py-2 transition-colors">Contact</Link>
 
           <button
             onClick={() => { setIsModalOpen(true); setIsOpen(false); }}
-            className="w-full bg-red-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 shadow-md mt-4"
+            className="w-full bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 shadow-md mt-4 hover:shadow-lg transition-all"
           >
             <Phone className="w-5 h-5" /> Book Now
           </button>
         </div>
       </div>
 
-      {/* MODAL WITH SCROLLBAR REMOVED */}
+      {/* MODAL WITH IMPROVED DESIGN */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50">
-          <div className="bg-white rounded-lg shadow-2xl w-full max-w-lg max-h-[95vh] flex flex-col">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[95vh] flex flex-col overflow-hidden">
 
-            <div className="bg-red-700 text-white p-2 sm:p-4 rounded-t-lg flex justify-between items-center flex-shrink-0">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                <h3 className="text-base sm:text-lg font-semibold">Request Service</h3>
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white p-4 sm:p-6 flex justify-between items-center flex-shrink-0">
+              <div className="flex items-center gap-2">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
+                <h3 className="text-lg sm:text-xl font-semibold">Request Service</h3>
               </div>
-              <button onClick={() => setIsModalOpen(false)} className="text-white">
+              <button onClick={() => setIsModalOpen(false)} className="text-white hover:bg-white/20 rounded-full p-1 transition-colors">
                 <X className="h-5 w-5 sm:h-6 sm:w-6" />
               </button>
             </div>
 
-            <div className="p-3 sm:p-6 space-y-3 sm:space-y-4 overflow-y-auto flex-grow">
+            {/* Modal Body */}
+            <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow">
+              {/* Emergency Info Bar */}
+              <div className="bg-[#e6f7fb] rounded-lg p-3 flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#0097b2] to-[#007a95] rounded-full flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-[#0097b2]">24/7 Emergency Service</p>
+                  <p className="text-xs text-gray-600">We respond within 5-10 minutes</p>
+                </div>
+              </div>
 
               {/* Name + Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs sm:text-sm text-gray-700">Full Name *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                   <input
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm"
+                    className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm text-gray-700">Phone Number *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
                   <input
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm"
+                    className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                   />
                 </div>
               </div>
 
               {/* Email Field */}
               <div>
-                <label className="block text-xs sm:text-sm text-gray-700">Email *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
                 <input
                   name="email"
                   type="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm"
+                  className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                 />
               </div>
 
               {/* Address */}
               <div>
-                <label className="block text-xs sm:text-sm text-gray-700">Address</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
                 <textarea
                   name="address"
-                  rows={1}
+                  rows={2}
                   value={formData.address}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm resize-none"
+                  className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm resize-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                 />
               </div>
 
               {/* Service type */}
               <div>
-                <label className="block text-xs sm:text-sm text-gray-700">Service Type</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
                 <select
                   name="serviceType"
                   value={formData.serviceType}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm"
+                  className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                 >
                   <option value="">Select Service</option>
                   <option value="freezer">Freezer Box</option>
@@ -247,28 +280,40 @@ export default function FuneralNavbar() {
 
               {/* Message */}
               <div>
-                <label className="block text-xs sm:text-sm text-gray-700">Additional Info</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Additional Info</label>
                 <textarea
                   name="message"
-                  rows={1}
+                  rows={2}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md py-2 px-3 text-sm resize-none"
+                  className="w-full border border-gray-300 rounded-lg py-2 px-3 text-sm resize-none focus:ring-2 focus:ring-[#0097b2] focus:border-transparent transition-all"
                 />
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex items-center justify-center gap-4 pt-2">
+                <div className="flex items-center gap-1">
+                  <Shield className="w-4 h-4 text-[#0097b2]" />
+                  <span className="text-xs text-gray-600">Professional Team</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Activity className="w-4 h-4 text-[#0097b2]" />
+                  <span className="text-xs text-gray-600">Rapid Response</span>
+                </div>
               </div>
 
               {/* Buttons */}
               <div className="flex gap-3 pt-2 flex-shrink-0">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 border border-gray-300 py-2 rounded-md text-gray-700 bg-white"
+                  className="flex-1 border border-gray-300 py-2 rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                 >
                   Cancel
                 </button>
 
                 <button
                   onClick={handleSubmit}
-                  className="flex-1 py-2 rounded-md text-white bg-red-700 hover:bg-red-800"
+                  className="flex-1 py-2 rounded-lg text-white bg-gradient-to-r from-[#0097b2] to-[#007a95] hover:shadow-lg transition-all"
                 >
                   Submit
                 </button>

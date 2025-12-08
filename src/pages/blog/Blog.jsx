@@ -25,7 +25,7 @@ export default function BlogList() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: "url('/banner11.png')",
+            backgroundImage: "url('/ban/5.png')",
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
         >
@@ -37,12 +37,11 @@ export default function BlogList() {
         <div className="relative h-full flex items-center text-left px-6">
           <div className="max-w-5xl mt-10">
          
-            <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-white">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl  font-black mb-6 leading-tight text-white">
             Helpful Resources for 
               <br />
-              <span className="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">
-             Families and Caregivers
-              </span>
+                Families and Caregivers
+            
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">

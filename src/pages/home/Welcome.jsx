@@ -1,68 +1,101 @@
 import { useState, useEffect } from "react";
-import { Phone, Heart, Activity, AlertCircle, Clock, Shield, MapPin } from "lucide-react";
+import { Phone, Heart, Activity, AlertCircle, Clock, Shield, MapPin, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function WelcomeSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    const interval = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
+  const features = [
+    { icon: Clock, title: "5-10 Min Response", desc: "Quick emergency response" },
+    { icon: Shield, title: "Expert Team", desc: "Professional medical staff" },
+    { icon: Heart, title: "Compassionate Care", desc: "Dignified handling" }
+  ];
+
   return (
-    <div className="relative w-full bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+    <div className="relative w-full bg-gradient-to-br from-white via-[#f0fbff] to-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-32 h-32 sm:w-72 sm:h-72 bg-[#0097b2]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 sm:w-96 sm:h-96 bg-[#0097b2]/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="h-full w-full" style={{
-          backgroundImage: `repeating-linear-gradient(45deg, #DC2626 0px, transparent 1px, transparent 10px, #DC2626 11px),
-                            repeating-linear-gradient(-45deg, #DC2626 0px, transparent 1px, transparent 10px, #DC2626 11px)`,
-          backgroundSize: '40px 40px'
+          backgroundImage: `linear-gradient(#0097b2 1px, transparent 1px), linear-gradient(90deg, #0097b2 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
         }}></div>
       </div>
 
-      
-
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Image */}
-          <div
-            className={`relative transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-            }`}
-          >
-            <div className="relative">
-              {/* Main Image Container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="/wel-img.jpg"
-                  alt="Emergency Medical Services"
-                  className="w-full h-[400px] lg:h-[500px] object-cover"
-                />
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        {/* Top Section */}
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className={`inline-flex items-center bg-[#e6f7fb] rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}>
+            <Activity className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-[#0097b2]" />
+            <span className="text-xs sm:text-sm font-bold text-[#0097b2]">24/7 EMERGENCY SERVICES</span>
+          </div>
+          
+          <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-black mb-4 sm:mb-6 transition-all duration-1000 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}>
+            <span className="text-[#0097b2]">Critical Care</span> When You Need It Most
+          </h1>
+          
+          <p className={`text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl sm:max-w-3xl mx-auto mb-8 sm:mb-12 transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}>
+            Providing rapid ambulance response and dignified transportation services with professional care and compassion during life's most critical moments.
+          </p>
+        </div>
+
+        {/* Main Content Grid - Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {/* Left - Image Card */}
+          <div className={`lg:col-span-2 transition-all duration-1000 delay-400 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
+          }`}>
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl group">
+              <img
+                src="/wel-img.jpg"
+                alt="Emergency Medical Services"
+                className="w-full h-[250px] sm:h-[350px] lg:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              
+              {/* Overlay with Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              
+              {/* Floating Badge */}
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-white/90 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1 sm:py-2 flex items-center shadow-xl">
+                <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+                <span className="text-xs sm:text-sm font-bold text-gray-900">LIVE RESPONSE</span>
               </div>
 
-              {/* Floating Emergency Badge */}
-              <div className="absolute top-6 left-6 bg-red-600 text-white px-4 py-2 rounded-full flex items-center shadow-lg">
-                <AlertCircle className="w-4 h-4 mr-2 animate-pulse" />
-                <span className="text-sm font-bold">EMERGENCY</span>
-              </div>
-
-              {/* Bottom Stats on Image */}
-              <div className="absolute bottom-3 left-6 right-6">
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-2">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <p className="text-2xl font-bold text-gray-900">5-10</p>
-                      <p className="text-xs text-gray-600">Mins Response</p>
+              {/* Stats Overlay - Responsive */}
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
+                  <div className="grid grid-cols-3 divide-x divide-gray-200">
+                    <div className="text-center px-2 sm:px-4">
+                      <p className="text-xl sm:text-2xl md:text-3xl font-black text-[#0097b2]">5-10</p>
+                      <p className="text-xs sm:text-sm text-gray-600 font-medium">MINUTES</p>
                     </div>
-                    <div>
-                      <p className="text-2xl font-bold text-gray-900">24/7</p>
-                      <p className="text-xs text-gray-600">Available</p>
+                    <div className="text-center px-2 sm:px-4">
+                      <p className="text-xl sm:text-2xl md:text-3xl font-black text-[#0097b2]">24/7</p>
+                      <p className="text-xs sm:text-sm text-gray-600 font-medium">AVAILABLE</p>
                     </div>
-                    <div>
-                      <p className="text-2xl font-bold text-gray-900">5000+</p>
-                      <p className="text-xs text-gray-600">Families</p>
+                    <div className="text-center px-2 sm:px-4">
+                      <p className="text-xl sm:text-2xl md:text-3xl font-black text-[#0097b2]">5000+</p>
+                      <p className="text-xs sm:text-sm text-gray-600 font-medium">FAMILIES</p>
                     </div>
                   </div>
                 </div>
@@ -70,87 +103,56 @@ export default function WelcomeSection() {
             </div>
           </div>
 
-          {/* Right - Content */}
-          <div
-            className={`transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
-          >
-            {/* Top Badge */}
-            <div className="inline-flex items-center bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Activity className="w-4 h-4 mr-2 text-red-600" />
-              TRUSTED EMERGENCY SERVICES
+          {/* Right - Features - Responsive Stack */}
+          <div className={`space-y-3 sm:space-y-4 lg:space-y-6 transition-all duration-1000 delay-600 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
+          }`}>
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className={`bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer border-2 ${
+                    activeFeature === index ? "border-[#0097b2] bg-gradient-to-r from-[#e6f7fb] to-white" : "border-transparent"
+                  }`}
+                  onMouseEnter={() => setActiveFeature(index)}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mr-3 sm:mr-4 transition-all duration-500 ${
+                      activeFeature === index ? "bg-gradient-to-br from-[#0097b2] to-[#007a95]" : "bg-[#e6f7fb]"
+                    }`}>
+                      <Icon className={`w-5 h-5 sm:w-7 sm:h-7 transition-all duration-500 ${
+                        activeFeature === index ? "text-white" : "text-[#0097b2]"
+                      }`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-1">{feature.title}</h3>
+                      <p className="text-gray-600 text-xs sm:text-sm">{feature.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CTA Section - Fully Responsive */}
+        <div className={`bg-gradient-to-r from-[#0097b2] to-[#007a95] rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white transition-all duration-1000 delay-800 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+            <div className="text-center lg:text-left">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">Need Emergency Assistance?</h3>
+              <p className="text-sm sm:text-base text-gray-100">Our team is ready to respond immediately to your emergency needs.</p>
             </div>
-
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#3f9ad1] mb-6 leading-tight">
-              When Every <span className="text-red-600">Second</span> Matters
-            </h1>
-
-            {/* Description */}
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We provide immediate ambulance response and dignified deadbody transportation services. 
-              Our professional team is committed to delivering compassionate care during your most critical moments.
-            </p>
-
-            {/* Key Features */}
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                  <Clock className="w-6 h-6 text-red-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Rapid Response Time</h3>
-                  <p className="text-sm text-gray-600">Ambulance arrives within 5-10 minutes</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                  <Shield className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Professional Team</h3>
-                  <p className="text-sm text-gray-600">Trained medical staff and paramedics</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                  <Heart className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Compassionate Care</h3>
-                  <p className="text-sm text-gray-600">Dignified handling with respect</p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link to="/services">
-                <button className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
-                  <Activity className="w-5 h-5 mr-2" />
-                  Explore Services
-                </button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full lg:w-auto">
+              <a href="tel:+917678309495" className="flex-1 lg:flex-none bg-white text-[#0097b2] px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold hover:shadow-xl transition-all flex items-center justify-center">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                <span className="text-sm sm:text-base">Call Now</span>
+              </a>
+              <Link to="/contact" className="flex-1 lg:flex-none border-2 border-white hover:bg-white hover:text-[#0097b2] text-white font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all flex items-center justify-center">
+                <span className="text-sm sm:text-base">Contact Us</span>
               </Link>
-              <Link to="/contact">
-                <button className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Get Help Now
-                </button>
-              </Link>
-            </div>
-
-            {/* Emergency Contact Card */}
-            <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl p-4 border border-red-200">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-red-600 font-semibold">Emergency Hotline</p>
-                  <p className="text-xl font-bold text-gray-900">+91 7678309495</p>
-                </div>
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ import WhyChooseUs from "./pages/home/WhyChooseUs";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import ServicesPage from "./pages/Services";
-import CallToAction from "./pages/home/Cta";
+//import CallToAction from "./pages/home/Cta";
 import Testimonials from "./pages/home/Testimonial";
 import BlogList from "./pages/blog/Blog";
 import BlogDetail from "./pages/blog/BlogDetails";
@@ -39,7 +39,7 @@ const App = () => {
                 <WelcomeSection />
                
                 <WhyChooseUs />
-                 <CallToAction />
+                 {/* <CallToAction /> */}
                 <ServiceSection />
                 <Testimonials />
               </div>
