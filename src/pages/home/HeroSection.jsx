@@ -73,7 +73,7 @@ export default function ImprovedHeroSection() {
           
 
             {/* Heading */}
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black mb-5 sm:mb-6 leading-tight text-white">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black mb-5 sm:mb-6 leading-tight text-white font-serif">
               Swift Response, 
               <br />
              

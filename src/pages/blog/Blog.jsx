@@ -31,7 +31,12 @@ export default function BlogList() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ✅ Header */}
-      <section className="relative min-h-[85vh] md:min-h-screen overflow-hidden pt-16 md:pt-20">
+      <section className="relative w-full 
+        min-h-[70vh]       /* Mobile */
+        sm:min-h-[80vh]    /* Tablets */
+        lg:min-h-[90vh]    /* Desktop */
+        mt-16 sm:mt-20 overflow-hidden">
+
         {/* Parallax Background */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -44,9 +49,11 @@ export default function BlogList() {
         </div>
         
         {/* Hero Content */}
-        <div className="relative h-full flex items-center text-left px-4 sm:px-6 md:px-8 lg:px-12 py-20 md:py-0">
-          <div className="max-w-5xl mt-15 md:mt-20">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 leading-tight text-white">
+        <div className="relative 
+          min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] 
+          flex items-center text-left px-4 sm:px-6 md:px-8 lg:px-12 py-20 md:py-0">
+          <div className="max-w-5xl mt-10 md:mt-0">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 leading-tight text-white font-serif">
               Helpful Resources for 
               <br />
               Families and Caregivers
