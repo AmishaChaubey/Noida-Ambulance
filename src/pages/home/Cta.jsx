@@ -57,7 +57,7 @@ export default function CallToAction() {
               <div className="bg-gradient-to-r from-[#0097b2] to-[#007a95] rounded-2xl p-6 text-white text-center shadow-xl transform lg:scale-110">
                 <p className="text-sm font-medium mb-2 opacity-90">Emergency Helpline</p>
                 <a href="tel:+917678309495" className="text-3xl font-bold hover:scale-105 transition-transform inline-block">
-                  +91 7678309495
+                  +91 9917162727
                 </a>
               </div>
               

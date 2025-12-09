@@ -385,32 +385,7 @@ export default function ContactPage() {
       </div>
 
       {/* ---------------- EMERGENCY BANNER ---------------- */}
-      <section className="bg-gradient-to-r from-[#0097b2] to-[#007a94] py-12 sm:py-16 lg:py-20 mt-8 md:mt-12 lg:mt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Need Immediate Assistance?
-          </h2>
-          <p className="text-lg text-gray-200 mb-8">
-            Our emergency helpline is available 24/7 for ambulance and dead body freezer box services
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+919917162727" 
-              className="bg-white text-[#0097b2] font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors w-full sm:w-auto"
-            >
-              <PhoneCall className="w-5 h-5 mr-2 flex-shrink-0" />
-              Call +91 9917162727
-            </a>
-            <a 
-              href="mailto:bobbyambulance@gmail.com" 
-              className="bg-transparent border-2 border-white text-white font-bold py-3 px-6 lg:px-8 rounded-lg flex items-center justify-center hover:bg-white hover:text-[#0097b2] transition-colors w-full sm:w-auto"
-            >
-              <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
-              Email Us
-            </a>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
