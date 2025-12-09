@@ -4,23 +4,34 @@ import { Ambulance } from "lucide-react";
 import { blogData } from "./data";
 import { IoBookOutline } from "react-icons/io5";
 
-
 export default function BlogList() {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Handle scroll for parallax effect
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ✅ Header */}
-  <section className="relative h-screen overflow-hidden">
+      <section className="relative min-h-[85vh] md:min-h-screen overflow-hidden pt-16 md:pt-20">
         {/* Parallax Background */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -32,26 +43,23 @@ export default function BlogList() {
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/70 to-gray-900/90"></div>
         </div>
         
- 
         {/* Hero Content */}
-        <div className="relative h-full flex items-center text-left px-6">
-          <div className="max-w-5xl mt-10">
-         
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl  font-black mb-6 leading-tight text-white">
-            Helpful Resources for 
+        <div className="relative h-full flex items-center text-left px-4 sm:px-6 md:px-8 lg:px-12 py-20 md:py-0">
+          <div className="max-w-5xl mt-15 md:mt-20">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 leading-tight text-white">
+              Helpful Resources for 
               <br />
-                Families and Caregivers
-            
+              Families and Caregivers
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
-Learn more about emergency preparedness, ambulance services, and respectful funeral planning            </p>
-       
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-10 max-w-3xl">
+              Learn more about emergency preparedness, ambulance services, and respectful funeral planning
+            </p>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white/50 rounded-full"></div>
           </div>

@@ -96,7 +96,7 @@ export default function ServicesPage() {
     { icon: Ambulance, value: '10,000+', label: 'Emergency Responses', color: 'text-[#0097b2]' },
     { icon: Users, value: '50+', label: 'Medical Staff', color: 'text-[#0097b2]' },
     { icon: Clock, value: '24/7', label: 'Availability', color: 'text-[#0097b2]' },
-    { icon: Award, value: '15+', label: 'Years Experience', color: 'text-[#0097b2]' },
+    { icon: Award, value: '5+', label: 'Years Experience', color: 'text-[#0097b2]' },
   ];
 
   const processSteps = [
@@ -259,11 +259,10 @@ export default function ServicesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="group bg-white text-[#0097b2] px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all">
-              <Phone className="mr-3 w-5 h-5 inline" />
-              Call Now
-            </Link>
-          
+             <a href="tel:+919917162727" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
+                <Phone className="w-5 h-5 mr-2" />
+                Call Now
+              </a>
           </div>
         </div>
       </section>
