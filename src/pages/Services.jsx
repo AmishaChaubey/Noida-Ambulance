@@ -133,10 +133,11 @@ export default function ServicesPage() {
               From rapid ambulance response to dignified funeral arrangements, we deliver care with professionalism and empathy
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="inline-flex items-center justify-center bg-white text-[#0097b2] px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all">
-                <Phone className="mr-3 w-5 h-5" />
+        
+              <a href="tel:+919917162727" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
+                <Phone className="w-5 h-5 mr-2" />
                 Call Now
-              </Link>
+              </a>
              
             </div>
           </div>

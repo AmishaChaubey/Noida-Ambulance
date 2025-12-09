@@ -146,7 +146,7 @@ export default function WelcomeSection() {
               <p className="text-sm sm:text-base text-gray-100">Our team is ready to respond immediately to your emergency needs.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full lg:w-auto">
-              <a href="tel:+917678309495" className="flex-1 lg:flex-none bg-white text-[#0097b2] px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold hover:shadow-xl transition-all flex items-center justify-center">
+              <a href="tel:+919917162727" className="flex-1 lg:flex-none bg-white text-[#0097b2] px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold hover:shadow-xl transition-all flex items-center justify-center">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 <span className="text-sm sm:text-base">Call Now</span>
               </a>

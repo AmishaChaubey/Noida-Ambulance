@@ -56,12 +56,12 @@ export default function CallToAction() {
             <div className="flex flex-col items-center lg:items-end gap-4">
               <div className="bg-gradient-to-r from-[#0097b2] to-[#007a95] rounded-2xl p-6 text-white text-center shadow-xl transform lg:scale-110">
                 <p className="text-sm font-medium mb-2 opacity-90">Emergency Helpline</p>
-                <a href="tel:+917678309495" className="text-3xl font-bold hover:scale-105 transition-transform inline-block">
+                <a href="tel:+919917162727" className="text-3xl font-bold hover:scale-105 transition-transform inline-block">
                   +91 9917162727
                 </a>
               </div>
               
-              <a href="tel:+917678309495" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
+              <a href="tel:+919917162727" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
                 <Phone className="w-5 h-5 mr-2" />
                 Call Now
               </a>
