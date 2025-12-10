@@ -21,7 +21,7 @@ const Footer = () => {
                         <span className="font-semibold text-lg">24/7 Emergency Services</span>
                     </div>
                     <a
-                        href="tel:+917678309495"
+                        href="tel:+919917162727"
                         className="bg-white text-[#0097b2] px-6 py-2 rounded-full font-bold flex items-center hover:bg-gray-100 transition-all duration-300 shadow-lg"
                     >
                         <FaPhoneAlt className="mr-2" />

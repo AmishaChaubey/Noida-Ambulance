@@ -223,7 +223,7 @@ const ServiceSection = () => {
         <div className="mt-12 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Need Immediate Assistance?</h3>
           <p className="text-gray-600 mb-6">Our emergency team is available 24/7 to help you</p>
-          <a href="tel:+917678309495" className="inline-flex items-center bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
+          <a href="tel:+919917162727" className="inline-flex items-center bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
             <Phone className="w-5 h-5 mr-2" />
             Call Now: +91 9917162727
           </a>
