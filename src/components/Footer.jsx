@@ -11,6 +11,14 @@ const Footer = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    // Define the quick links with their specific paths
+    const quickLinks = [
+        { text: 'About Us', path: '/about' },
+        { text: 'Our Services', path: '/services' },
+        { text: 'Contact Us', path: '/contact' },
+        { text: 'Blogs', path: '/blog' },
+    ];
+
     return (
         <footer className="bg-gray-50 text-gray-700 relative">
             {/* Emergency Banner */}
@@ -20,6 +28,7 @@ const Footer = () => {
                         <FaAmbulance className="text-2xl mr-3" />
                         <span className="font-semibold text-lg">24/7 Emergency Services</span>
                     </div>
+                    {/* This link uses 'tel:' and must remain an <a> tag */}
                     <a
                         href="tel:+919917162727"
                         className="bg-white text-[#0097b2] px-6 py-2 rounded-full font-bold flex items-center hover:bg-gray-100 transition-all duration-300 shadow-lg"
@@ -37,15 +46,17 @@ const Footer = () => {
                     {/* Column 1: About & Social */}
                     <div className="lg:col-span-1">
                         <Link to="/" className="inline-block mb-5">
-                        <h2 className='font-bold text-black text-2xl'>Noida Ambulance Service</h2>
+                            <h2 className='font-bold text-black text-2xl'>Noida Ambulance Service</h2>
                         </Link>
                         <p className="text-gray-600 mb-6 leading-relaxed">
-Reliable ambulance and mortuary services with round-the-clock compassionate support.                        </p>
+                            Reliable ambulance and mortuary services with round-the-clock compassionate support.
+                        </p>
                         <div className="flex space-x-3">
+                            {/* These are now Link components for internal routing */}
                             <Link to="/facebook" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaFacebook className="text-xl" />
                             </Link>
-                            <Link to="/instagram" className="w-10 h-10 bg-white rounded-full text-[#0099b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <Link to="/instagram" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaInstagram className="text-xl" />
                             </Link>
                             <Link to="/linkedin" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -62,10 +73,10 @@ Reliable ambulance and mortuary services with round-the-clock compassionate supp
                         <div>
                             <h4 className="text-lg font-bold mb-4 text-gray-900">Quick Links</h4>
                             <ul className="space-y-2">
-                                {['About', 'Services', 'Contact', 'Blog'].map((item, index) => (
-                                    <li key={index}>
-                                        <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200">
-                                            {item}
+                                {quickLinks.map((link) => (
+                                    <li key={link.path}>
+                                        <Link to={link.path} className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200">
+                                            {link.text}
                                         </Link>
                                     </li>
                                 ))}
@@ -98,14 +109,16 @@ Reliable ambulance and mortuary services with round-the-clock compassionate supp
                                 </div>
                                 <div className="flex items-center">
                                     <FaPhoneAlt className="text-[#0097b2] text-xl mr-3 flex-shrink-0" />
+                                    {/* This link uses 'tel:' and must remain an <a> tag */}
                                     <a href="tel:+919917162727" className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200">
                                         (+91) 9917162727
                                     </a>
                                 </div>
                                 <div className="flex items-center">
                                     <FaEnvelope className="text-[#0097b2] text-xl mr-3 flex-shrink-0" />
-                                    <a href="mailto:contact@bobbyambulance.com" className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200 text-sm">
-                                    info@noidaambulanceservice.online
+                                    {/* This link uses 'mailto:' and must remain an <a> tag */}
+                                    <a href="mailto:info@noidaambulanceservice.online" className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200 text-sm">
+                                        info@noidaambulanceservice.online
                                     </a>
                                 </div>
                                 <div className="flex items-center">
@@ -126,7 +139,7 @@ Reliable ambulance and mortuary services with round-the-clock compassionate supp
                         &copy; {new Date().getFullYear()} Noida Ambulance Services. All Rights Reserved.
                     </p>
                     <div className="flex items-center space-x-4">
-                      
+                        {/* This is an external link and must remain an <a> tag */}
                         <a
                             href="https://deboxtechnology.com/"
                             target="_blank"
