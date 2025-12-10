@@ -42,18 +42,18 @@ const Footer = () => {
                         <p className="text-gray-600 mb-6 leading-relaxed">
 Reliable ambulance and mortuary services with round-the-clock compassionate support.                        </p>
                         <div className="flex space-x-3">
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <Link to="/facebook" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaFacebook className="text-xl" />
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                            </Link>
+                            <Link to="/instagram" className="w-10 h-10 bg-white rounded-full text-[#0099b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaInstagram className="text-xl" />
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                            </Link>
+                            <Link to="/linkedin" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaLinkedin className="text-xl" />
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                            </Link>
+                            <Link to="/whatsapp" className="w-10 h-10 bg-white rounded-full text-[#0097b2] flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <FaWhatsapp className="text-xl" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@ Reliable ambulance and mortuary services with round-the-clock compassionate supp
                         <div>
                             <h4 className="text-lg font-bold mb-4 text-gray-900">Quick Links</h4>
                             <ul className="space-y-2">
-                                {['About Us', 'Our Services', 'Contact Us', 'Blogs'].map((item, index) => (
+                                {['About', 'Services', 'Contact', 'Blog'].map((item, index) => (
                                     <li key={index}>
                                         <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-600 hover:text-[#0097b2] transition-colors duration-200">
                                             {item}
