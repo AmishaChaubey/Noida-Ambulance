@@ -134,21 +134,11 @@ const Footer = () => {
 
             {/* Bottom Bar */}
             <div className="bg-[#0097b2] text-white py-4">
-                <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
+                <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center text-sm">
                     <p className="mb-2 md:mb-0">
                         &copy; {new Date().getFullYear()} Noida Ambulance Services. All Rights Reserved.
                     </p>
-                    <div className="flex items-center space-x-4">
-                        {/* This is an external link and must remain an <a> tag */}
-                        <a
-                            href="https://deboxtechnology.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:underline"
-                        >
-                            Developed by Debox Technology
-                        </a>
-                    </div>
+               
                 </div>
             </div>
 

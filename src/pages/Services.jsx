@@ -15,6 +15,7 @@ import {
   Sparkles,
   Feather,
   Trees,
+  Box,
   Sun,
   Headphones,
   Zap,
@@ -23,7 +24,9 @@ import {
   Calendar,
   Ambulance,
   Snowflake,
-  AlertCircle
+  AlertCircle,
+  Droplet,
+  Flame
 } from 'lucide-react';
 import { Link } from "react-router-dom";
 
@@ -40,52 +43,124 @@ export default function ServicesPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  // UPDATED SERVICES LIST
   const services = [
     {
-      icon: Ambulance,
-      title: 'Emergency Ambulance',
-      image: "/blog-img/fu.jpg",
-      description: 'Rapid response 24/7 emergency medical transport with advanced life support',
-      features: ['24/7 Availability', 'Advanced Life Support', 'GPS Tracked Vehicles', 'Trained Paramedics'],
-      color: 'from-[#0097b2] to-[#007a95]',
-      bgColor: 'bg-[#e6f7fb]',
-      iconColor: 'text-[#0097b2]',
-    },
-    {
-      icon: Snowflake,
-      title: 'Freezer Box Service',
-      image: "/blog-img/11.jpg",
-      description: 'Professional preservation with temperature-controlled freezer box rental',
-      features: ['Temperature Controlled', 'Hygienic Equipment', 'Doorstep Delivery', 'Professional Setup'],
-      color: 'from-[#0097b2] to-[#007a95]',
-      bgColor: 'bg-[#e6f7fb]',
-      iconColor: 'text-[#0097b2]',
-    },
-    {
-      icon: Car,
-      title: 'Patient Transport',
-      image: "/blog-img/9.jpg",
-      description: 'Non-emergency medical transport for hospital transfers',
-      features: ['Wheelchair Accessible', 'Medical Supervision', 'Comfortable Journey', 'Affordable Rates'],
+      icon: Flame,
+      title: 'Cremation Services',
+      image: "/blog-img/cremation.jpg",
+      description: 'Complete cremation arrangements with respectful rituals and end-to-end support.',
+      features: [
+        'Electric & Traditional Cremation',
+        'Documentation Support',
+        'Ritual Assistance',
+        '24/7 Service'
+      ],
       color: 'from-[#0097b2] to-[#007a95]',
       bgColor: 'bg-[#e6f7fb]',
       iconColor: 'text-[#0097b2]',
     },
     {
       icon: Heart,
-      
-  title: 'Funeral Service',
-  image: "/blog-img/8.jpg",
-  description: 'Professional funeral arrangements with complete support, rituals guidance, and dignified services for families.',
-  features: [
-    'Priest & Ritual Support',
-    'Hearse Van Service',
-    'Freezer Box Arrangement',
-    'Complete Funeral Assistance'
-  ],
-  
-
-
+      title: 'Funeral Services',
+      image: "/blog-img/funeral.jpg",
+      description: 'Professional funeral arrangements with full family support and dignity.',
+      features: [
+        'Hearse Van Service',
+        'Funeral Setup & Decoration',
+        'Priest & Ritual Support',
+        'End-to-End Coordination'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: User,
+      title: 'Pandit for Last-Rites',
+      image: "/blog-img/pandit.jpg",
+      description: 'Experienced pandits for all last-rites rituals according to traditions.',
+      features: [
+        'All Rituals Covered',
+        'Multiple Language Pandits',
+        'Samagri Guidance',
+        'On-Time Availability'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: Box,
+      title: 'Antim-Sanskar Samagri',
+      image: "/blog-img/samagri.jpg",
+      description: 'All required samagri for antim-sanskar delivered to your home.',
+      features: [
+        'Complete Samagri Kit',
+        'Premium Quality Material',
+        'Home Delivery',
+        'Custom Requirements Supported'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: Calendar,
+      title: 'Funeral Pre-Planning',
+      image: "/blog-img/preplan.jpg",
+      description: 'Pre-plan funeral arrangements to reduce stress and ensure smoother process.',
+      features: [
+        'Custom Funeral Planning',
+        'Documentation Help',
+        'Budget-Friendly Options',
+        '24/7 Assistance'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: Car,
+      title: 'Dead-Body Transportation',
+      image: "/blog-img/transport.jpg",
+      description: 'Safe and dignified dead-body transport by road or air (domestic/international).',
+      features: [
+        'Hearse Van Service',
+        'Ambulance Transport',
+        'Domestic & International Transfer',
+        'Documentation Support'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: Snowflake,
+      title: 'Freezer-Box Services',
+      image: "/blog-img/freezer.jpg",
+      description: 'Professional preservation with temperature-controlled freezer boxes.',
+      features: [
+        'Hygienic Equipment',
+        '24/7 Availability',
+        'Doorstep Delivery',
+        'Trained Support Team'
+      ],
+      color: 'from-[#0097b2] to-[#007a95]',
+      bgColor: 'bg-[#e6f7fb]',
+      iconColor: 'text-[#0097b2]',
+    },
+    {
+      icon: Droplet,
+      title: 'Embalming Services',
+      image: "/blog-img/embalming.jpg",
+      description: 'Certified embalmers to preserve the body for long-distance transport or rituals.',
+      features: [
+        'Certified Professionals',
+        'High-Quality Chemicals',
+        'Home / Hospital Visit',
+        'Suitable for Air Transport'
+      ],
       color: 'from-[#0097b2] to-[#007a95]',
       bgColor: 'bg-[#e6f7fb]',
       iconColor: 'text-[#0097b2]',
@@ -118,27 +193,28 @@ export default function ServicesPage() {
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
         >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/80"></div>
         </div>
 
         <div className="relative h-full flex items-center text-left px-4 sm:px-6 lg:px-8 py-20 md:py-0">
           <div className="max-w-5xl mt-10">
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl  font-black mb-6 leading-tight text-white">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black mb-6 leading-tight text-white">
               Comprehensive Emergency <br />
               <span className="bg-gradient-to-r from-white to-[#e6f7fb] bg-clip-text text-transparent">
-               & Funeral Services
+                & Funeral Services
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-10 max-w-3xl">
               From rapid ambulance response to dignified funeral arrangements, we deliver care with professionalism and empathy
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-        
-              <a href="tel:+919917162727" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
+              <a
+                href="tel:+919917162727"
+                className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Call Now
               </a>
-             
             </div>
           </div>
         </div>
@@ -168,7 +244,6 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-         
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0097b2] font-serif">
               Comprehensive <span className="text-gray-900">Care Solutions</span>
             </h2>
@@ -202,8 +277,6 @@ export default function ServicesPage() {
                         </div>
                       ))}
                     </div>
-
-                 
                   </div>
                 </Link>
               );
@@ -259,13 +332,17 @@ export default function ServicesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-             <a href="tel:+919917162727" className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
-              </a>
+            <a
+              href="tel:+919917162727"
+              className="bg-white hover:bg-gray-50 text-[#0097b2] border-2 border-[#0097b2] font-bold py-3 px-6 rounded-full transition-all flex items-center shadow-md hover:shadow-xl"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Call Now
+            </a>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

@@ -5,49 +5,89 @@ import { Clock, Users, Truck, Shield, Heart, Phone, Star, CheckCircle, ArrowRigh
 const ServiceSection = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [hoveredFeature, setHoveredFeature] = useState(null);
+const services = [
+  {
+    img: "/blog-img/8.jpg",
+    title: "Cremation Services",
+    description: "Complete cremation arrangements with respectful rituals and full assistance.",
+    icon: <Clock className="w-6 h-6" />,
+    features: ["Electric & Traditional", "Documentation Support", "24/7 Assistance"],
+    link: "/services",
+    emergency: true,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/7.jpg",
+    title: "Funeral Services",
+    description: "End-to-end funeral support with guidance, setup, and all rituals.",
+    icon: <Shield className="w-6 h-6" />,
+    features: ["Funeral Setup", "Priest Support", "Complete Assistance"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/pandit2.jpg",
+    title: "Pandit for Last-Rites",
+    description: "Professional and experienced pandits for all last-rite rituals.",
+    icon: <Users className="w-6 h-6" />,
+    features: ["All Rituals", "Samagri Guidance", "On-Time Availability"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/a.jpg",
+    title: "Antim-Sanskar Samagri",
+    description: "Complete samagri kit available with home delivery for funerals.",
+    icon: <Heart className="w-6 h-6" />,
+    features: ["Full Samagri Kit", "Premium Quality", "Home Delivery"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/p.jpg",
+    title: "Funeral PrePlanning",
+    description: "Plan funeral arrangements in advance for peace of mind and reduced burden.",
+    icon: <Star className="w-6 h-6" />,
+    features: ["Budget Friendly", "Custom Planning", "Documentation Support"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/9.jpg",
+    title: "Dead-Body Transportation",
+    description: "Dignified transport services by road or air with complete support.",
+    icon: <Truck className="w-6 h-6" />,
+    features: ["Hearse Van", "Domestic & International", "Proper Handling"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/10.jpg",
+    title: "Freezer-Box Services",
+    description: "Freezer-box services with temperature control for proper preservation.",
+    icon: <Shield className="w-6 h-6" />,
+    features: ["Hygienic Boxes", "Doorstep Delivery", "24/7 Availability"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  },
+  {
+    img: "/blog-img/2.png",
+    title: "Embalming Services",
+    description: "Certified embalming services for preservation and long-distance transfer.",
+    icon: <Activity className="w-6 h-6" />,
+    features: ["Certified Experts", "Long Preservation", "Suitable for Air Travel"],
+    link: "/services",
+    emergency: false,
+    color: "from-[#0097b2] to-[#007a95]"
+  }
+];
 
-  const services = [
-    {
-      img: "/img1.jpg",
-      title: "Emergency Ambulance",
-      description: "24/7 rapid response ambulance service with trained medical staff and life-saving equipment.",
-      icon: <Clock className="w-6 h-6" />,
-      features: ["5-10 min response", "Advanced life support", "Trained paramedics"],
-      link: "/services",
-      emergency: true,
-      color: "from-[#0097b2] to-[#007a95]"
-    },
-    {
-      img: "/img6.jpg",
-      title: "Freezer Box Service",
-      description: "Premium quality freezer boxes with temperature control to preserve with dignity and respect.",
-      icon: <Shield className="w-6 h-6" />,
-      features: ["Temperature controlled", "Hygienic", "Available 24/7"],
-      link: "/services",
-      emergency: false,
-      color: "from-[#0097b2] to-[#007a95]"
-    },
-    {
-      img: "/img2.jpg",
-      title: "Dead Body Transport",
-      description: "Dignified and respectful transportation services ensuring safe and proper handling during transfers.",
-      icon: <Truck className="w-6 h-6" />,
-      features: ["Dignified transport", "Proper handling", "Nationwide coverage"],
-      link: "/services",
-      emergency: false,
-      color: "from-[#0097b2] to-[#007a95]"
-    },
-    {
-      img: "/blog-img/8.jpg",
-      title: "Funeral Assistance",
-      description: "Complete support for funeral arrangements, documentation, and handling throughout the process.",
-      icon: <Heart className="w-6 h-6" />,
-      features: ["Documentation help", "Respectful handling", "Complete guidance"],
-      link: "/services",
-      emergency: false,
-      color: "from-[#0097b2] to-[#007a95]"
-    }
-  ];
 
   return (
     <section className="relative bg-gradient-to-br from-white via-[#f0fbff] to-white py-20 overflow-hidden">
@@ -219,15 +259,7 @@ const ServiceSection = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Need Immediate Assistance?</h3>
-          <p className="text-gray-600 mb-6">Our emergency team is available 24/7 to help you</p>
-          <a href="tel:+919917162727" className="inline-flex items-center bg-gradient-to-r from-[#0097b2] to-[#007a95] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
-            <Phone className="w-5 h-5 mr-2" />
-            Call Now: +91 9917162727
-          </a>
-        </div>
+     
       </div>
     </section>
   );
